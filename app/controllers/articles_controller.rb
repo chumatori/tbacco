@@ -6,5 +6,13 @@ class ArticlesController < ApplicationController
   def show
     @articles = Article.find(params[:id])
   end
-end
 
+  def create
+  end
+  def new
+  end
+  def edit
+  end
+  def destroy
+  end
+end
