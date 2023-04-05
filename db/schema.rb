@@ -15,11 +15,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_131220) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string "header"
-    t.string "body"
+    t.string "header" #обязательное_поле
+    t.string "body"  #обязательное_поле
     t.integer "like_ids"
     t.integer "dislike_ids"
-    t.bigint "user_id", null: false
+    t.bigint "user_id", null: false  #обязательное_поле
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "archived", default: false

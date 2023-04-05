@@ -1,0 +1,12 @@
+<main>
+  <h1 class="display-4 fw-normal text-center mb-3">Food articles</h1>
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
+    <% @articles.each do |article| %>
+      <div class="col">
+        <h2><%= article.header %></h2>
+        <p><%= article.body %></p>
+        <a href="#" class="btn btn-outline-primary">Read</a>
+      </div>
+    <% end %>
+  </div>
+</main>
