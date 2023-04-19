@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+.mr-l-s {
+  margin-left: 5px;
+}
+.mr-r-s {
+  margin-right: 5px;
+}
+.mr-a-l {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.like-button {
+  font-size: 30px;
+  color: grey
+}
+.red-col {
+  color: red
+}

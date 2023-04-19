@@ -1,8 +1,15 @@
 <h2><%= @article.header %></h2>
 <p><%= @article.body %></p>
-
+<div>
+  <i onclick="myFunction(this)" class="mr-a-l like-button fa fa-thumbs-up"></i>
+  <i onclick="myFunction(this)" class="mr-a-l like-button fa fa-thumbs-down"></i>
+</div>
+<script>
+function myFunction(x) {
+  x.classList.add('red-col')
+}
+</script>
 <%= link_to "НА ГЛАВНУЮ", root_path%>
-
 <%
 =begin%>
 #  <%= link_to "User posts", model %> 

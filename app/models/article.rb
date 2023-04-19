@@ -1,11 +1,5 @@
 class Article < ApplicationRecord
-  has_one :user
+  belongs_to :user
   validates :header, :body, presence: true
-  has_many :comment
-  
-  def archive
-  end
-
-  def restore
-  end
+  has_many :comments
 end
