@@ -1,8 +1,6 @@
 class User < ApplicationRecord
-  def self.recovery_password
-  end
+  has_secure_password
 
-  validates :email, :password, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  has_many :posts
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  has_many :article
 end

@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'welcome', to:'welcome#index'
+  root 'articles#index'
 
-  get 'login', to: 'authorizations#create', as: :login
-  get 'reset_password', to: 'authorizations#update', as: :reset_password #forgot_password
-  get 'users/new', to: 'users#create', as: :users #new_registration
+  get 'users/new', to: 'users#new', as: :new_user
+  post 'users', to: 'users#create'
 
-  resources :users
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+
+  get 'lk', to: 'users#lk'
 
   resources :articles do
     resources :comments
-    end
+  end
 end

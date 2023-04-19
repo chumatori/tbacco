@@ -1,9 +1,13 @@
 #require 'faker'
-User.create(id:1, name:"Mary", email:"mary@test.test", password:"123")
-User.create(id:2, name:"John", email:"john@test.test", password:"123")
-User.create(id:3, name:"Marthin", email:"marthin@test.test", password:"123")
-User.create(id:4, name:"Anthony", email:"anthony@test.test", password:"123")
-User.create(id:5, name:"Mila", email:"mila@test.test", password:"123")
+Comment.delete_all
+Article.delete_all
+User.delete_all
+
+User.create(name:"Mary", email:"mary@test.test", password:"123")
+User.create(name:"John", email:"john@test.test", password:"123")
+User.create(name:"Marthin", email:"marthin@test.test", password:"123")
+User.create(name:"Anthony", email:"anthony@test.test", password:"123")
+User.create(name:"Mila", email:"mila@test.test", password:"123")
 
 
 Article.create(id:1, header:"Lo Mein", body:"Lo mein is a super popular noodle dish that you’ll find both at restaurants and made at home. In Cantonese, lo mein means “mixed noodles”. In Mandarin, it’s pronounced “lao mian” and translates exactly the same. Essentially, it’s egg noodles mixed with sauce – somewhat similar to chow mein, but not quite.", user_id:1)
