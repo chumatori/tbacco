@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :articles
+    end
+  end
+  post 'api/auth', to: 'api/auth#login'
 end
