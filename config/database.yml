@@ -6,6 +6,10 @@ default: &default
   password: password
   pool: 5
 
+production:
+  <<: *default
+  database: app_production
+
 development:
   <<: *default
   database: app_development

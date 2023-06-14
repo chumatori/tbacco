@@ -8,7 +8,6 @@ module Jwt
     end
 
     def decode(token)
-      pp token
       decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
       HashWithIndifferentAccess.new decoded
     end

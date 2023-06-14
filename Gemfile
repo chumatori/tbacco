@@ -57,6 +57,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "mailcatcher", "~> 0.2.4"
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -73,3 +74,8 @@ group :test do
   gem "webdrivers"
 
 end
+
+gem "sidekiq", "~> 7.1"
+
+gem "redis", "~> 5.0"
+
