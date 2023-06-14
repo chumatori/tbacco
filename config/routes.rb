@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   root 'articles#index'
 
   get 'users/new', to: 'users#new', as: :new_user

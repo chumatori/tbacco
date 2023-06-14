@@ -6,6 +6,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -14,4 +15,30 @@ services:
     ports:
       - "3000:3000"
     depends_on:
+      - redis
       - db
+      - sidekiq
+    env_file:
+      - .env
+    environment:
+      RAILS_ENV: development
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - '6379:6379'
+
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
