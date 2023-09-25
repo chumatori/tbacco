@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   get 'lk', to: 'users#lk'
 
   resources :articles do
+    member do
+      put :like
+      put :dislike
+    end
     resources :comments
+    resources :reactions, only: %i[create]
   end
 
   namespace :api do
@@ -21,5 +26,12 @@ Rails.application.routes.draw do
       resources :articles
     end
   end
+
+  get  'reset_password', to: 'reset_password#new'
+  post 'reset_password', to: 'reset_password#update'
+
+  get  'forgot_password', to: 'forgot_password#new'
+  post 'forgot_password', to: 'forgot_password#edit'
+
   post 'api/auth', to: 'api/auth#login'
 end

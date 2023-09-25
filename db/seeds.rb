@@ -1,7 +1,7 @@
 #require 'faker'
-Comment.delete_all
-Article.delete_all
-User.delete_all
+# Comment.delete_all
+# Article.delete_all
+# User.delete_all
 
 User.create(name:"Mary", email:"mary@test.test", password:"123")
 User.create(name:"John", email:"john@test.test", password:"123")

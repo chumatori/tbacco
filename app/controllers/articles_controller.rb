@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.where(banned_at: nil)
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find_by(id: params[:id])
+    redirect_to articles_path if @article&.banned?
   end
 
   def new
@@ -24,10 +25,12 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    redirect_to articles_path if @article&.banned?
   end
   
   def update
     @article = Article.find(params[:id])
+    redirect_to articles_path if @article&.banned?
 
     if @article.update(article_params)
       redirect_to @article
@@ -48,6 +51,16 @@ class ArticlesController < ApplicationController
     else
       render :delete, status: :unprocessable_entity
     end
+  end
+
+  def like
+    Reaction.where(user: current_user, article_id: params[:id], kind: 'like').first_or_create
+    Reaction.find_by(user: current_user, article_id: params[:id], kind: 'dislike')&.destroy!
+  end
+
+  def dislike
+    Reaction.where(user: current_user, article_id: params[:id], kind: 'dislike').first_or_create
+    Reaction.find_by(user: current_user, article_id: params[:id], kind: 'like')&.destroy!
   end
 
   private
