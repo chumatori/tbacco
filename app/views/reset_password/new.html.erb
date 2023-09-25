@@ -1,0 +1,15 @@
+<%= form_with do |f| %>
+  <div>
+    <%= f.label :password %>
+    <%= f.text_field :password, type: 'password' %>
+  </div>
+    <div>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation, type: 'password', required: true %>
+  </div>
+  <%= f.text_field :password_confirmation, name: 'email', value: @email, type: 'hidden'%>
+  <%= f.text_field :password_confirmation, name: 'token', value: @token, type: 'hidden' %>
+  <div>
+    <%= f.submit "Reset_password" %>
+  </div>
+<% end %>

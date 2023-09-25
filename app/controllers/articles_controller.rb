@@ -54,6 +54,8 @@ class ArticlesController < ApplicationController
   end
 
   def like
+    pp "dfssdfsdfsdfsd"
+    pp current_user
     Reaction.where(user: current_user, article_id: params[:id], kind: 'like').first_or_create
     Reaction.find_by(user: current_user, article_id: params[:id], kind: 'dislike')&.destroy!
   end

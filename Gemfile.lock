@@ -89,9 +89,14 @@ GEM
     date (3.3.3)
     debug (1.7.1)
     erubi (1.12.0)
+    et-orbi (1.2.7)
+      tzinfo
     eventmachine (1.2.7)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.1.1)
@@ -152,6 +157,7 @@ GEM
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.2)
     rack (2.2.6.4)
     rack-protection (3.0.6)
@@ -193,6 +199,8 @@ GEM
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    rufus-scheduler (3.9.1)
+      fugit (~> 1.1, >= 1.1.6)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -202,6 +210,10 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.14.0)
+    sidekiq-scheduler (5.0.3)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 6, < 8)
+      tilt (>= 1.4.0)
     sinatra (3.0.6)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -270,6 +282,7 @@ DEPENDENCIES
   redis (~> 5.0)
   selenium-webdriver
   sidekiq (~> 7.1)
+  sidekiq-scheduler
   sprockets-rails
   stimulus-rails
   tzinfo-data

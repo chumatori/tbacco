@@ -11,4 +11,9 @@ class Article < ApplicationRecord
   def banned?
     !banned_at.nil?
   end
+
+  def pitiful?
+    return false if Reaction.exists?(article_id: id)
+    2.minutes.ago > created_at
+  end
 end

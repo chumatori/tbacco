@@ -1,7 +1,9 @@
 <h2><%= @article.header %></h2>
 <p><%= @article.body %></p>
-<div>
+<div <%= 'hidden' if current_user.nil? %> >
+  <span><%= @article.reaction.where(kind: 'like').count %></span>
   <i onclick="change_reaction(this)" class="mr-a-l like-button fa fa-thumbs-up" id="like" data-href="<%= like_article_path %>"></i>
+  <span><%= @article.reaction.where(kind: 'dislike').count %></span>
   <i onclick="change_reaction(this)" class="mr-a-l like-button fa fa-thumbs-down" id="dislike" data-href="<%= dislike_article_path %>"></i>
 </div>
 <script>
@@ -22,9 +24,8 @@
     el.classList.add('red-col');
   }
   function change_reaction(el) {
-    el.
-    csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-  const requestOptions = {
+    let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf },
       body: JSON.stringify( {'reaction': {kind: el.id} })
