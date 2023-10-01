@@ -5,8 +5,8 @@ class Pity
   include Sidekiq::Worker
 
   def perform
-    Article.all.reload.map do |article|
-      Reaction.create(user_id: 6, article: article, kind: 'like') if article.pitiful?
+    Article.pity.find_each do |article|
+      Reaction.create(user: User.system_user, article: article, kind: 'like')
     end
   end
 end

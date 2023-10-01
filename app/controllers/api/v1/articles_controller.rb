@@ -1,6 +1,4 @@
 class Api::V1::ArticlesController < Api::ApplicationController
-  before_action :authenticate
-
   def index
     @articles = Article.all
     render json: @articles

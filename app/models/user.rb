@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :articles
 
   def self.system_user
-    where(kind: :system_user).first_or_create
+    where(kind: :system_user).first_or_create(password: rand.to_s, email: "system_user@system.com")
   end
 end

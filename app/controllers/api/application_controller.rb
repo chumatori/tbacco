@@ -1,5 +1,6 @@
 class Api::ApplicationController < ApplicationController
   protect_from_forgery with: :null_session
+  before_action :authenticate
   def authenticate
     token = request.headers['Authorization']&.split(' ')&.last
     if token && Jwt.decode(token)
