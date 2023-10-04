@@ -1,6 +1,6 @@
 :scheduler:
   :schedule:
     pity:
-      every: '10s'
+      every: '100s'
       # cron: '0 * * * * *'   # Runs once per minute
       class: Pity
