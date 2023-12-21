@@ -1,29 +1,8 @@
 
-<h2>Добро пожаловать в Курсач</h2>
+<h2>Добро пожаловать в Tobacco</h2>
 <p>У нас тут есть посты, пока без фильтров и сортировки, просто кучкой</p>
-<h2>Посмотреть о чем они  могешь нажав на какойто оО, странно не правда ли? Никогда такого небыло, и вот опять.</h2>
-  <button id="myButton">Нажми меня</button>
-<style>
-@keyframes pulse {
-    0% { background-color: #ff0000; }
-    50% { background-color: #ffcccc; }
-    100% { background-color: #ff0000; }
-}
-.button-animation {
-    animation: pulse 1s infinite;
-}
-</style>
-<script>
-var button = document.getElementById('myButton');
+<h4>Посмотреть о чем они  могешь нажав на какойто оО, странно не правда ли? Никогда такого небыло, и вот опять.</h2>
 
-button.addEventListener('mouseover', function() {
-    button.classList.add('button-animation');
-});
-
-button.addEventListener('mouseout', function() {
-    button.classList.remove('button-animation');
-});
-</script>
 <% if @articles.any? %>
 <ul>
 <li><% @articles.each do |article| %>

@@ -21,6 +21,7 @@
           <%= link_to "Выйти", logout_path, method: :delete, class: 'mr-r-s mr-l-s btn-success btn my-2 my-sm-1', data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         <% else %>
+          <%= link_to 'Регистрация', new_user_path, class: 'btn-dark btn my-2 my-sm-0' %>
           <%= link_to 'Войти', login_path, class: 'btn-dark btn my-2 my-sm-0' %>
         <%end%>
 
